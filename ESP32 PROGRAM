@@ -1,0 +1,114 @@
+#include <WiFi.h>
+#include <PubSubClient.h>
+
+// Atualize as informações da sua rede Wi-Fi e do broker MQTT
+const char* ssid = "Smart 4.0 (3)";
+const char* password = "Smart4.0";
+const char* mqtt_server = "192.168.150.200";  // IP do broker MQTT
+
+WiFiClient espClient;
+PubSubClient client(espClient);
+unsigned long lastMsg = 0;
+#define MSG_BUFFER_SIZE 50
+char msg[MSG_BUFFER_SIZE];
+int value = 0;
+
+void setup_wifi() {
+  Serial.println();
+  Serial.print("Conectando a: ");
+  Serial.println(ssid);
+
+  WiFi.mode(WIFI_STA);
+  WiFi.begin(ssid, password);
+
+  int tentativas = 0;  // Contador de tentativas de conexão
+
+  while (WiFi.status() != WL_CONNECTED && tentativas < 20) { // Tenta 20 vezes
+    delay(500);
+    Serial.print(".");
+    tentativas++;
+  }
+
+  if (WiFi.status() == WL_CONNECTED) {
+    Serial.println("\nWiFi conectado!");
+    Serial.print("Endereço IP: ");
+    Serial.println(WiFi.localIP());
+  } else {
+    Serial.println("\nFalha ao conectar! Verifique SSID e senha.");
+  }
+}
+
+
+void callback(char* topic, byte* payload, unsigned int length) {
+  Serial.print("Mensagem recebida no tópico: ");
+  Serial.println(topic);
+  
+  String payloadStr = "";
+  for (int i = 0; i < length; i++) {
+    payloadStr += (char)payload[i];
+  }
+
+  Serial.print("Payload recebido: ");
+  Serial.println(payloadStr);  // Mostra o valor exato recebido
+
+  payloadStr.trim();  // Remove espaços extras, quebras de linha e caracteres invisíveis
+if (payloadStr.equals("1")) {
+  Serial.println("Acendendo o LED...");
+  digitalWrite(2, LOW);
+} else if (payloadStr.equals("0")) {
+  Serial.println("Apagando o LED...");
+  digitalWrite(2, HIGH);
+} else {
+    Serial.println("Comando inválido recebido!");
+  }
+
+}
+
+
+
+void reconnect() {
+  // Loop até o cliente MQTT se reconectar
+  while (!client.connected()) {
+    Serial.print("Attempting MQTT connection...");
+    String clientId = "ESP32Client-";
+    clientId += String(random(0xffff), HEX);
+    // Tenta conectar
+    if (client.connect(clientId.c_str())) {
+      Serial.println("connected");
+      // Publica uma mensagem de boas-vindas
+      client.publish("outTopic", "hello world");
+      // Reassina os tópicos
+      client.subscribe("inTopic");
+    } else {
+      Serial.print("failed, rc=");
+      Serial.print(client.state());
+      Serial.println(" try again in 5 seconds");
+      delay(5000);
+    }
+  }
+}
+
+void setup() {
+  pinMode(2, OUTPUT);     // Configura o pino do LED como saída
+  Serial.begin(115200);
+  setup_wifi();
+  client.setServer(mqtt_server, 9090);  // Definindo a porta 9090
+  client.setCallback(callback);
+}
+
+void loop() {
+  if (!client.connected()) {
+    reconnect();
+  }
+  client.loop();
+
+  unsigned long now = millis();
+  if (now - lastMsg > 2000) {  // Publica a cada 2 segundos
+    lastMsg = now;
+    ++value;
+    snprintf(msg, MSG_BUFFER_SIZE, "hello world #%ld", value);
+    Serial.print("Publish message: ");
+    Serial.println(msg);
+    client.publish("outTopic", msg);
+  }
+}

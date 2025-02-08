@@ -1,0 +1,151 @@
+[
+    {
+        "id": "cd0f3ce210aff3ee",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "80c007b735de1034",
+        "type": "mqtt out",
+        "z": "cd0f3ce210aff3ee",
+        "name": "",
+        "topic": "inTopic",
+        "qos": "",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "74f20773702d20e7",
+        "x": 660,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "a17db5770d444c8d",
+        "type": "inject",
+        "z": "cd0f3ce210aff3ee",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "0",
+        "payload": "0",
+        "payloadType": "str",
+        "x": 370,
+        "y": 200,
+        "wires": [
+            [
+                "80c007b735de1034"
+            ]
+        ]
+    },
+    {
+        "id": "a00cfa4f3255b312",
+        "type": "debug",
+        "z": "cd0f3ce210aff3ee",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "d166000453a0d157",
+        "type": "mqtt in",
+        "z": "cd0f3ce210aff3ee",
+        "name": "",
+        "topic": "outTopic",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "74f20773702d20e7",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 420,
+        "y": 280,
+        "wires": [
+            [
+                "a00cfa4f3255b312"
+            ]
+        ]
+    },
+    {
+        "id": "fa0ff03f51317091",
+        "type": "inject",
+        "z": "cd0f3ce210aff3ee",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "1",
+        "payload": "1",
+        "payloadType": "str",
+        "x": 350,
+        "y": 120,
+        "wires": [
+            [
+                "80c007b735de1034"
+            ]
+        ]
+    },
+    {
+        "id": "74f20773702d20e7",
+        "type": "mqtt-broker",
+        "name": "Esp32",
+        "broker": "localhost",
+        "port": "9090",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    }
+]

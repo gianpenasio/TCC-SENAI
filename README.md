@@ -1,10 +1,12 @@
 # TCC-SENAI
-Dashboard de Gestão de Produtos
-# PROJETO AINDA EM DESENVOLVIMENTO (PREVISÃO DE ENTREGA EM JUNHO/2025)
+Dashboard de Gestão de Estoque
 
+Bibliotecas Node-Red:
 ![Image](https://github.com/user-attachments/assets/34559160-3c3f-4549-b7b1-b58c2ad069c2)
 ![Image](https://github.com/user-attachments/assets/dc9cd60b-f142-4d28-9ebf-e92a5893e82a)
 ![Image](https://github.com/user-attachments/assets/99b114b0-da45-45be-9351-5c375865ee06)
+
+asd
 ![Image](https://github.com/user-attachments/assets/6f34e4fe-acd3-43b7-83a1-c963d53b7f74)
 ![Image](https://github.com/user-attachments/assets/9daee82f-f26b-4d92-8404-36c707305c33)
 ![Image](https://github.com/user-attachments/assets/1dcf3c09-180c-49e0-bd78-eba231a75062)

@@ -2,6 +2,7 @@
 Dashboard de Gestão de Estoque
 
 Bibliotecas Node-Red:
+
 ![Image](https://github.com/user-attachments/assets/34559160-3c3f-4549-b7b1-b58c2ad069c2)
 ![Image](https://github.com/user-attachments/assets/dc9cd60b-f142-4d28-9ebf-e92a5893e82a)
 ![Image](https://github.com/user-attachments/assets/99b114b0-da45-45be-9351-5c375865ee06)

@@ -3,6 +3,14 @@ Dashboard de Gestão de Estoque
 
 ![Image](https://github.com/user-attachments/assets/20853aa5-734a-46a0-b369-c00609025051)
 
+O projeto consiste em um 
+
+
+
+
+
+
+
 Dashboard no Dispositivo Remoto:
 
 ![Image](https://github.com/user-attachments/assets/6f34e4fe-acd3-43b7-83a1-c963d53b7f74)

@@ -1,6 +1,8 @@
 # TCC-SENAI
 Dashboard de Gestão de Estoque
 
+![Image](https://github.com/user-attachments/assets/20853aa5-734a-46a0-b369-c00609025051)
+
 Bibliotecas Node-Red:
 
 ![Image](https://github.com/user-attachments/assets/dc9cd60b-f142-4d28-9ebf-e92a5893e82a)
@@ -14,7 +16,7 @@ asd
 ![Image](https://github.com/user-attachments/assets/637ca21d-721c-4806-ad4a-9e7807220015)
 ![Image](https://github.com/user-attachments/assets/87b1dabe-e3a0-46d9-9a6b-d14bf59a5c43)
 ![Image](https://github.com/user-attachments/assets/1d1a4897-6e2f-458f-acf2-eaa07789bad9)
-![Image](https://github.com/user-attachments/assets/20853aa5-734a-46a0-b369-c00609025051)
+
 ![Image](https://github.com/user-attachments/assets/fd90ecb7-3336-4167-abbf-3933b666a559)
 ![Image](https://github.com/user-attachments/assets/0e511f76-6aa2-4bf3-ad21-c60cc05c1a78)
 
